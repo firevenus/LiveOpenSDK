@@ -1,0 +1,36 @@
+﻿<linker>
+    <!-- 修正 il2cpp异常 #3011504827 JsonSerializationException: Unable to find a constructor to use for type dyCloudUnitySDK.Sid -->
+    <!-- 通过 embed link.xml 防止数据结构、及其字段在il2cpp时被strip。 参考：https://github.com/applejag/Newtonsoft.Json-for-Unity/wiki/Embed-link.xml-in-UPM-package -->
+    <assembly fullname="Newtonsoft.Json" preserve="all">
+        <type fullname="*" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.Formatters.FormatterAssemblyStyle" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.SerializationBinder" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.ISerializationSurrogate" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.TypeLoadExceptionHolder" preserve="all"/>
+
+        <!-- https://github.com/jilleJr/Newtonsoft.Json-for-Unity/issues/54 -->
+        <type fullname="System.Runtime.CompilerServices.NullableAttribute"/>
+        <type fullname="System.Runtime.CompilerServices.NullableContextAttribute"/>
+
+        <!-- https://github.com/jilleJr/Newtonsoft.Json-for-Unity/issues/8 -->
+        <!-- https://github.com/jilleJr/Newtonsoft.Json-for-Unity/issues/65 -->
+        <type fullname="Newtonsoft.Json.Converters.*Converter" preserve="all"/>
+
+        <!-- No issue on these, though they are quite commonly used. -->
+        <type fullname="Newtonsoft.Json.Serialization.*NamingStrategy" preserve="all"/>
+    </assembly>
+    <assembly fullname="dyCloudUnitySDK" preserve="all">
+        <type fullname="*" preserve="all"/>
+        <type fullname="System.SerializableAttribute"/>
+        <type fullname="Newtonsoft.Json.JsonPropertyAttribute"/>
+        <type fullname="System.Runtime.Serialization.Formatters.FormatterAssemblyStyle" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.SerializationBinder" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.ISerializationSurrogate" preserve="all"/>
+        <type fullname="System.Runtime.Serialization.TypeLoadExceptionHolder" preserve="all"/>
+        <type fullname="System.Runtime.CompilerServices.NullableAttribute"/>
+        <type fullname="System.Runtime.CompilerServices.NullableContextAttribute"/>
+    </assembly>
+    <!-- LiveOpenSdk Core -->
+    <assembly fullname="ByteDance.LiveOpenSdk.Api" preserve="all"/>
+    <assembly fullname="ByteDance.LiveOpenSdk.Impl" preserve="all"/>
+</linker>

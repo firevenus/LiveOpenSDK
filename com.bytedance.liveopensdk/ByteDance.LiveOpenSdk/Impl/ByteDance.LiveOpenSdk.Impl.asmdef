@@ -1,0 +1,16 @@
+{
+    "name": "ByteDance.LiveOpenSdk.Impl",
+    "rootNamespace": "ByteDance.LiveOpenSdk",
+    "references": [
+        "GUID:04b29f5fc0cac4d50b2498479213482d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}
